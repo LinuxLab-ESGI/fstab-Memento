@@ -9,7 +9,7 @@ Here are the columns :
 `<filesystem>   <mounting path>   <filesystem type>  <options>   <dump>  <fsck>`
 
 Example of a fstab content :  
-`UUID=swswswsw-r2d2-cp30-&bb8-swswswswswsw  /  ext4  defaults  0 1`
+`UUID=swswswsw-r2d2-cp30-&bb8-swswswswswsw  /home  ext4  defaults  0 1`
 
 ## filesystem column
 
@@ -21,14 +21,42 @@ The first column indicates the filesystem (partition, disk, ...). It can be spec
 - GPT parition UUIDs `PARTUUID=`
 - GTP patition labels `PARTLABEL=HOME`
 
-
 ## Mounting path column
+
+The second column indicates the mounting point in the OS filesystem. It can be any folder in the filesystem.
+> For a partition that doesn't have a mounting point (like swap parition), we can use the value `none`.
 
 ## Type column
 
+The third column indicates the type of filesystem used for the partition.
+
+For instance : ext2, ext3, ext4, xfs, btrfs, vfat, swap, ...
+
+> For ntfs we have to install ntfs-3g
+
 ## Options column
+
+The fourth column indicates some particluar options for during the mounting process. They are the same options used with the command `mount` :
+
+| option   | description                                                                                                    |
+| -------- | -------------------------------------------------------------------------------------------------------------- |
+| defaults | default options if we don't really know the others options :) eauivalent to rw,suid,dev,exec,auto,nouser,async |
+| auto     | the filesystem should be automatically mounted at start up or when the command `mount -a` is executed          |
+| noauto   | only mounted when we told it to be mounted                                                                     |
+| exec     | binaries can be executed                                                                                       |
+| noexec   | binaries can't be executed                                                                                     |
+| user     | users can mount the filesystem (without root privileges)                                                       |
+| nouser   | only root can mount the filesystem                                                                             |
+| ro       | mount as read-only                                                                                             |
+| rw       | mount as read and write                                                                                        |
+| sync     | I/O done synchronously (handle single process)                                                                 |
+| async    | I/O done asynchronously (can handle mutltiple I/O)                                                             |
+| suid     |                                                                                                                |
+| nosuid   |                                                                                                                |
+| discard  |                                                                                                                |
+| nofail   |                                                                                                                |
+| ...      | ...                                                                                                            |
 
 ## Dump column
 
 ## Fsck column
-
