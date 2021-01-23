@@ -51,12 +51,28 @@ The fourth column indicates some particluar options for during the mounting proc
 | rw       | mount as read and write                                                                                        |
 | sync     | I/O done synchronously (handle single process)                                                                 |
 | async    | I/O done asynchronously (can handle mutltiple I/O)                                                             |
-| suid     |                                                                                                                |
-| nosuid   |                                                                                                                |
-| discard  |                                                                                                                |
-| nofail   |                                                                                                                |
+| suid     | authorize suid and sgid (get the owner permissions when executing the owner's binary)                          |
+| nosuid   | unauthorize suid and sgid                                                                                      |
+| discard  | activate TRIM option on SSD (better data management)                                                           |
+| nofail   | allow the boot sequence to continue even if the drive fails to mount                                           |
 | ...      | ...                                                                                                            |
+
+> These options can be mixed together with a `,`.
+> Example : `UUID=swswswsw-r2d2-cp30-&bb8-swswswswswsw  /home   ext4    async,auto,noexec   0 1`
 
 ## Dump column
 
+The fifth column indicates the dump option. Dump is a backup programm. If the value is set to 1, the filesystem will be backup with dump and not if it's set to 0.
+> The programm dump nis needed for this option, it is usually not installed so it can be set to 0.
+
 ## Fsck column
+
+The sixth column indicates the fsck (**F**ile **S**ystem **C**heck). It will check the integrity of the filesystem by priority :  
+
+- Value 1, it will be checked first.
+- Value 2, it will be checked after 1.
+- Value 0, it won't be checked.
+
+___
+Updated : 23/01/2021  
+Author : AnthonyF
