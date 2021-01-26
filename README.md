@@ -1,6 +1,6 @@
 # fstab-Memento
 
-fstab (**F**ile **S**ystem **tab**le) is a file configuration that let us to define how and where disk partitions should be mounted into the filesystem. It contains a table representation of each file system, where they are mounted, what type of filesystem used, type of mounting, ...
+fstab (**F**ile **S**ystem **tab**le) is a file configuration that let us to define how and where disk partitions should be mounted into the filesystem. It contains a table representation of each file system, where they are mounted, what type of filesystem is used, type of mounting, ...
 
 Each filesystem is described in a separate line.  
 Each line is composed of 6 columns separated by a blank space or a tabulation.
@@ -13,7 +13,7 @@ Example of a fstab content :
 
 ## filesystem column
 
-The first column indicates the filesystem (partition, disk, ...). It can be specified with different options
+The first column indicates the filesystem (partition, disk, ...). It can be specified with different options :
 
 - Descriptors `/dev/sda1`
 - Labels `LABEL=HOME`
@@ -36,12 +36,12 @@ For instance : ext2, ext3, ext4, xfs, btrfs, vfat, swap, ...
 
 ## Options column
 
-The fourth column indicates some particluar options for during the mounting process. They are the same options used with the command `mount` :
+The fourth column indicates some particular options for during the mounting process. They are the same options used with the command `mount` :
 
 | option   | description                                                                                                    |
 | -------- | -------------------------------------------------------------------------------------------------------------- |
-| defaults | default options if we don't really know the others options :) eauivalent to rw,suid,dev,exec,auto,nouser,async |
-| auto     | the filesystem should be automatically mounted at start up or when the command `mount -a` is executed          |
+| defaults | default options if we don't really know the others options :) equivalent **to rw,suid,dev,exec,auto,nouser,async** |
+| auto     | the filesystem should be automatically mounted at startup or when the command `mount -a` is executed          |
 | noauto   | only mounted when we told it to be mounted                                                                     |
 | exec     | binaries can be executed                                                                                       |
 | noexec   | binaries can't be executed                                                                                     |
@@ -62,8 +62,8 @@ The fourth column indicates some particluar options for during the mounting proc
 
 ## Dump column
 
-The fifth column indicates the dump option. Dump is a backup programm. If the value is set to 1, the filesystem will be backup with dump and not if it's set to 0.
-> The programm dump nis needed for this option, it is usually not installed so it can be set to 0.
+The fifth column indicates the dump option. Dump is a backup program. If the value is set to 1, the filesystem will be backup with dump and not if it's set to 0.
+> The program dump is needed for this option, it is usually not installed so it can be set to 0.
 
 ## Fsck column
 
@@ -74,5 +74,5 @@ The sixth column indicates the fsck (**F**ile **S**ystem **C**heck). It will che
 - Value 0, it won't be checked.
 
 ___
-Updated : 23/01/2021  
+Updated : 26/01/2021  
 Author : AnthonyF
